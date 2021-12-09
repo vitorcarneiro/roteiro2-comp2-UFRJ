@@ -47,9 +47,11 @@ AULA0102OBJS = aula0102.o
 AULA0103OBJS = aula0103.o
 
 # Roteiro 2 \/ -------------------------------------------------------------------------------------
-AULA02 = aula0202a aula0202b
+AULA02 = aula0202a aula0202b aula0202c
 AULA0202AOBJS = aula0201a.o aula0202.o
 AULA0202BOBJS = aula0201b.o aula0202.o
+AULA0202COBJS = aula0201c.o aula0202.o
+
 
 
 EXECS = aula0101\
@@ -93,6 +95,10 @@ aula0202a: $(AULA0202AOBJS)
 
 aula0202b: $(AULA0202BOBJS)
 	$(LD) $(LFLAGS) -o $@ $(AULA0202BOBJS)
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+aula0202c: $(AULA0202COBJS)
+	$(LD) $(LFLAGS) -o $@ $(AULA0202COBJS)
 	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
 
 
