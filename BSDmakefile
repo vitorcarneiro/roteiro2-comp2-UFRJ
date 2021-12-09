@@ -40,19 +40,32 @@ STANDARD = -std=c11
 CFLAGS = -Wall $(STANDARD)
 LFLAGS = -Wall
 
-# Roteiro 1 \/ -------------------------------------------------------------------------------------
+# \/ OBJS MACROS\/ --------------------------------------------------------------------------------
+# -- Roteiro 1 \/ ---------------------------------------------------------------------------------
 AULA01 = aula0101 aula0102 aula0103
 AULA0101OBJS = aula0101.o
 AULA0102OBJS = aula0102.o
 AULA0103OBJS = aula0103.o
+# -- Roteiro 1 /\ ---------------------------------------------------------------------------------
 
-# Roteiro 2 \/ -------------------------------------------------------------------------------------
+# -- Roteiro 2 \/ ---------------------------------------------------------------------------------
 AULA02 = aula0202a aula0202b aula0202c aula0202d
 AULA0202AOBJS = aula0201a.o aula0202.o
 AULA0202BOBJS = aula0201b.o aula0202.o
 AULA0202COBJS = aula0201c.o aula0202.o
 AULA0202DOBJS = aula0201d.o aula0202.o
+# -- Roteiro 2 /\ ---------------------------------------------------------------------------------
+# /\ OBJS MACROS/\ --------------------------------------------------------------------------------
 
+
+# \/ LIBS MACROS\/ --------------------------------------------------------------------------------
+# -- Roteiro 2 \/ ---------------------------------------------------------------------------------
+LIBMATEMATICARECURSAOOBJS = aula0201a.o
+LIBMATEMATICADOWHILEOBJS = aula0201b.o
+LIBMATEMATICAFOROBJS = aula0201c.o
+LIBMATEMATICAWHILEOBJS = aula0201d.o
+# -- Roteiro 2 /\ ---------------------------------------------------------------------------------
+# /\ LIBS MACROS/\ --------------------------------------------------------------------------------
 
 
 EXECS = aula0101\
@@ -74,7 +87,7 @@ ALL = $(EXECS) $(LIBS)
 
 all: $(ALL)
 
-# Roteiro 1 \/ -------------------------------------------------------------------------------------
+# -- Roteiro 1 \/ ----------------------------------------------------------------------------------
 aula01: $(AULA01)
 
 aula0101: $(AULA0101OBJS)
@@ -88,8 +101,10 @@ aula0102: $(AULA0102OBJS)
 aula0103: $(AULA0103OBJS)
 	$(LD) $(LFLAGS) -o $@ $(AULA0103OBJS)
 	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+# -- Roteiro 1 /\ ---------------------------------------------------------------------------------
 
-# Roteiro 2 \/ -------------------------------------------------------------------------------------
+
+# -- Roteiro 2 \/ ----------------------------------------------------------------------------------
 aula02: $(AULA02)
 
 aula0202a: $(AULA0202AOBJS)
@@ -107,6 +122,19 @@ aula0202c: $(AULA0202COBJS)
 aula0202d: $(AULA0202DOBJS)
 	$(LD) $(LFLAGS) -o $@ $(AULA0202DOBJS)
 	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+libmatematicarecursao.a: $(LIBMATEMATICARECURSAOOBJS)
+	ar -r -c $@ $(LIBMATEMATICARECURSAOOBJS)
+
+libmatematicadowhile.a: $(LIBMATEMATICADOWHILEOBJS)
+	ar -r -c $@ $(LIBMATEMATICADOWHILEOBJS)
+
+libmatematicafor.a: $(LIBMATEMATICAFOROBJS)
+	ar -r -c $@ $(LIBMATEMATICAFOROBJS)
+
+libmatematicawhile.a: $(LIBMATEMATICAWHILEOBJS)
+	ar -r -c $@ $(LIBMATEMATICAWHILEOBJS)
+# -- Roteiro 2 /\ ---------------------------------------------------------------------------------
 
 
 
