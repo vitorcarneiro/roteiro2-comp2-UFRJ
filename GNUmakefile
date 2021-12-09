@@ -53,9 +53,14 @@ AULA0101OBJS = aula0101.o
 AULA0102OBJS = aula0102.o
 AULA0103OBJS = aula0103.o
 
+# Roteiro 2 \/ -------------------------------------------------------------------------------------
+AULA02 = aula0202a
+AULA0202AOBJS = aula0201a.o aula0202.o
+
 EXECS = aula0101\
 		aula0102\
-		aula0103
+		aula0103\
+		aula0202a
 
 LIBS =
 
@@ -81,6 +86,14 @@ aula0102: $(AULA0102OBJS)
 
 aula0103: $(AULA0103OBJS)
 	$(LD) $(LFLAGS) -o $@ $(AULA0103OBJS)
+	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
+
+# Roteiro 2 \/ -------------------------------------------------------------------------------------
+
+aula02: $(AULA02)
+
+aula0202a: $(AULA0202AOBJS)
+	$(LD) $(LFLAGS) -o $@ $(AULA0202AOBJS)
 	cp -f $@ $@-$(OS)-$(CC)-$(DIALETO)
 
 .PHONY: clean clean-all clean-objs clean-freebsd clean-linux clean-gcc clean-clang clean-ansi clean-c89 clean-c90 clean-c99 clean-c11
