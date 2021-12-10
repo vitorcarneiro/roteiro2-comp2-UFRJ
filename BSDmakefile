@@ -26,9 +26,9 @@ STANDARD = -ansi
 .ifdef C89
 DIALETO = c89
 STANDARD = -std=c89
-#.elif C90
-#DIALETO = c90
-#STANDARD = -std=c90
+.elif C90
+DIALETO = c90
+STANDARD = -std=c90
 .elif C99
 DIALETO = c99
 STANDARD = -std=c99

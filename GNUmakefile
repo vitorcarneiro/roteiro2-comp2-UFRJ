@@ -28,10 +28,10 @@ DIALETO = c89
 STANDARD = -std=c89
 endif
 
-#ifeq ($(dialeto), C90)
-#DIALETO = c90
-#STANDARD = -std=c90
-#endif
+ifeq ($(dialeto), C90)
+DIALETO = c90
+STANDARD = -std=c90
+endif
 
 ifeq ($(dialeto), C99)
 DIALETO = c99
